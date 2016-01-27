@@ -1,7 +1,7 @@
 <project default="compile">
 
   <!-- build.xml for lab04, w16, CS56
-       author: Phill Conrad
+       author: Henry Yu
        Note: for this lab, you should not need to edit this file -->
 
 

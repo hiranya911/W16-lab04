@@ -31,7 +31,7 @@ public class AllMyDrawings
 	Computer c1 = new Computer(100,250,50);
 	g2.setColor(Color.RED); g2.draw(c1);
 	
-	// Make a red computer that's half the size, 
+	// Make a black computer that's half the size, 
 	// and moved over 150 pixels in x direction
 	
 	Shape c2 = ShapeTransforms.scaledCopyOfLL(c1,0.5,0.5);
@@ -121,7 +121,7 @@ public class AllMyDrawings
 	g2.draw(cc1);
 	g2.setColor(new Color(0x8F00FF)); 
 	
-	// Rotate the second house 45 degrees around its center.
+	// Rotate the second computer 45 degrees around its center.
 	Shape cc3 = ShapeTransforms.rotatedCopyOf(cc2, Math.PI/4.0);
 	
 	g2.draw(cc3);
@@ -140,7 +140,7 @@ public class AllMyDrawings
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("A bunch of Coffee Cups by Henry Yu", 20,20);
 	
 	
 	// Draw some coffee cups.
