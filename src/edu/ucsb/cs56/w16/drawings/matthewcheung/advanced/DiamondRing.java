@@ -3,18 +3,31 @@ import java.awt.geom.GeneralPath;
 import java.awt.Shape;
 import java.awt.geom.Line2D;
 
+
+/**                                                                                                                                         
+   A vector drawing of a diamond ring that implements                                                                                       
+   the Shape interface                                                                                                                     
+   @author Matthew Cheung                                                                                                                   
+   @version for CS56, W16, UCSB                                                                                                           
+*/
+
+
 public class DiamondRing extends Ring implements Shape{
+
+    /**                                                                                                                                     
+       Constructor                                                                                                                         
+       @param x x coord of top left of outer ring                                                                                          
+       @param y y coord of top left of outer ring                                                                                         
+       @param width width of outer ring                                                                                                   
+       @param height height of outer ring                                                                                                  
+*/
 
     public DiamondRing(double x, double y, double width, double height)
     {
+
 	super(x,y,width,height);
 	GeneralPath gp = this.get();
-	
-	/*	Line2D.Double topLine = new Line2D.Double (x+width*0.3, y - height/3, x+width*0.75, y - height/3  );
-	Line2D.Double midLine = new Line2D.Double (x+width*0.25, y - height/3, x+width*0.75, y - height/3  );
-	Line2D.Double left = new Line2D.Double( x + width*0.5, y, x+width/4, y - height/3); 
-        Line2D.Double right = new Line2D.Double( x + width*0.5, y, x + width*0.75, y - height/3); 
-	*/	
+
         Line2D.Double topLine = new Line2D.Double (x+width*0.42, y - height/4, x+width*0.58, y - height/4);
         Line2D.Double midLine = new Line2D.Double (x+width*0.35, y - height/6, x+width*0.65, y - height/6);
         Line2D.Double left = new Line2D.Double( x + width*0.5, y, x+width*.35, y - height/6);

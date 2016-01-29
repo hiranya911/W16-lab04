@@ -6,9 +6,26 @@ import java.awt.geom.Ellipse2D;
 
 import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 
+/**                                                                                                                                         
+   A vector drawing of a ring that implements                                                                                              
+   the Shape interface
+                                                                                                                                            
+   @author Matthew Cheung                                                                                                                  
+   @version for CS56, W16, UCSB                                                                                                         
+                                                                                                                                       
+*/
+
 
 public class Ring extends GeneralPathWrapper implements Shape
 {
+
+    /**
+       Constructor
+       @param x x coord of top left of outer ring
+       @param y y coord of top left of outer ring
+       @param width width of outer ring
+       @param height height of outer ring
+    */
 
     public Ring(double x, double y, double width, double height)
     {
