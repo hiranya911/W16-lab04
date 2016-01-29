@@ -4,9 +4,9 @@ import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
 
 /**
-   A House
+   StarShield
       
-   @author Phill Conrad 
+   @author Franklin Tang
    @version for CS56, W16, UCSB
    
 */
@@ -34,10 +34,7 @@ public class StarShield extends Star implements Shape
 	Circles x2 = new Circles(x,y,r2);
 	Circles x3 = new Circles(x,y,r3);
 	Circles x4 = new Circles(x,y,r4);
-	
-	// add the windows to the house
-	// Look up the meaning of the second parameter of append
-	// (Hint--is a method of "GeneralPath")
+
 	
         GeneralPath wholeShield = this.get();
         wholeShield.append(x1, false);

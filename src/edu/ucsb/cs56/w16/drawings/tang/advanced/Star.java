@@ -24,10 +24,10 @@ public class Star extends GeneralPathWrapper implements Shape
     /**
        Constructor
        
-       @param x x coord of lower left corner of house
-       @param y y coord of lower left corner of house
-       @param width width of the house
-       @param height of house (including first story and second story)
+       @param x x coord of lower left corner of Star
+       @param y y coord of lower left corner of Star
+       @param edge of the Star
+      
     */
     public Star(double x, double y, double edge)
     {
