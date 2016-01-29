@@ -71,16 +71,16 @@ public class AllMyDrawings
     }
     
     
-    /** Draw a picture with a few computers and coffee cups
+    /** Draw a picture with a few computers.
      */
     public static void drawPicture2(Graphics2D g2) {
 	
 	// Draw some coffee cups.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
+	CompleteComputer large = new CompleteComputer(100,50,225);
+	CompleteComputer smallCC = new CompleteComputer(20,50,40);
+	CompleteComputer tallSkinny = new CompleteComputer(20,150,20);
+	CompleteComputer shortFat = new CompleteComputer(20,250,40);
 	
 	g2.setColor(Color.RED);     g2.draw(large);
 	g2.setColor(Color.GREEN);   g2.draw(smallCC);
@@ -130,7 +130,7 @@ public class AllMyDrawings
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Coffee Cups and a few computers by Henry Yu", 20,20);
+	g2.drawString("A bunch of Complete Computers and a few Computers by Henry Yu", 20,20);
     }
     
     /** Draw a different picture with a few houses and coffee cups
@@ -140,13 +140,13 @@ public class AllMyDrawings
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Henry Yu", 20,20);
+	g2.drawString("A bunch of Complete Computers by Henry Yu", 20,20);
 	
 	
 	// Draw some coffee cups.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
+	CompleteComputer large = new CompleteComputer(100,50,225);
+	CompleteComputer smallCC = new CompleteComputer(20,50,40);
 	
 	g2.setColor(Color.RED);     g2.draw(large);
 	g2.setColor(Color.GREEN);   g2.draw(smallCC);
