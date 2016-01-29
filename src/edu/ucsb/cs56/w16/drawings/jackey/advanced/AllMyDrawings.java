@@ -53,5 +53,54 @@ public class AllMyDrawings
 	g2.drawString("A few lightsabers by Jackey Lau", 20,20);
 
     }
+
+    public static void drawPicture2(Graphics2D g2) {
 	
+	
+	LightSaber hw1 = new LightSaber(100);
+	g2.setColor(Color.RED);
+	g2.draw(hw1);
+
+	Shape hw2 = ShapeTransforms.translatedCopyOf(hw1,150,100);
+	hw2 = ShapeTransforms.scaledCopyOfLL(hw2,1.5,1.5);
+	hw2 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI);
+	g2.setColor(Color.GREEN);
+	g2.draw(hw2);
+
+	LightSaber hw3 = new LightSaber(500);
+	Shape hw4 = ShapeTransforms.rotatedCopyOf(hw3, Math.PI/4.0);
+	g2.setColor(Color.BLUE);
+	g2.draw(hw4);
+
+     
+
+      
+	g2.setColor(Color.BLACK);
+	g2.drawString("A few lightsabers by Jackey Lau", 20,20);
+
+    }
+
+    public static void drawPicture3(Graphics2D g2){
+	LightSaber hw1 = new LightSaber(500);
+	g2.setColor(Color.RED);
+	g2.draw(hw1);
+
+	Shape hw2 = ShapeTransforms.rotatedCopyOf(hw1, Math.PI/4);
+	g2.setColor(Color.BLUE);
+	g2.draw(hw2);
+
+	Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4);
+	g2.setColor(Color.GREEN);
+	g2.draw(hw3);
+
+	Shape hw4 = ShapeTransforms.rotatedCopyOf(hw3, Math.PI/4);
+	g2.setColor(Color.ORANGE);
+	g2.draw(hw4);
+
+	
+    }
+    
+    
+    
 }
+
