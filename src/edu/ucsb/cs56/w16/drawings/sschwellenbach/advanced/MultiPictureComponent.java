@@ -5,9 +5,9 @@ import java.awt.Graphics2D;
 import javax.swing.JComponent;
 
 /**
-   A component that draws a Picture by Phill Conrad
+   A component that draws a Picture by Sierra Schwellenbach
    
-   @author Phill Conrad (original drawing)
+   @author Sierra Schwellenbach
    @version CS56, W16, UCSB
 */
 

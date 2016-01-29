@@ -5,7 +5,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.geom.Ellipse2D;
 
 /**
-   A House
+   A Basketball Hoop
       
    @author Sierra Schwellenbach
    @version for CS56, W16, UCSB
