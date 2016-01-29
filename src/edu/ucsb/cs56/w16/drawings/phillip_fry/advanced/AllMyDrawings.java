@@ -26,14 +26,14 @@ public class AllMyDrawings
 	Tank t1 = new Tank(100,250,100,75);
 	g2.setColor(Color.CYAN); g2.draw(t1);
 	
-	// Make a black house that's half the size, 
+	// Make a black tank that's half the size, 
 	// and moved over 150 pixels in x direction
 	
 	Shape t2 = ShapeTransforms.scaledCopyOfLL(t1,0.5,0.5);
 	t2 = ShapeTransforms.translatedCopyOf(t2,150,0);
 	g2.setColor(Color.BLACK); g2.draw(t2);
 	
-	// Here's a house that's 4x as big (2x the original)
+	// Here's a tank that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
 	t2 = ShapeTransforms.scaledCopyOfLL(t2,4,4);
 	t2 = ShapeTransforms.translatedCopyOf(t2,150,0);
@@ -50,7 +50,7 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(t2); 
 	
-	// Draw two houses with Windows
+	// Draw two flag tanks
 	
 	flagTank fT1 = new flagTank(50,100,50,60);
 	flagTank fT2 = new flagTank(200,500,200,100);
@@ -66,7 +66,7 @@ public class AllMyDrawings
     }
     
     
-    /** Draw a picture with a few houses and coffee cups
+    /** Draw a picture with a few tanks and coffee cups
      */
     public static void drawPicture2(Graphics2D g2) {
 	
@@ -128,7 +128,7 @@ public class AllMyDrawings
 	g2.drawString("A bunch of Tanks by Phillip Fry", 20,20);
     }
     
-    /** Draw a different picture with a few houses and coffee cups
+    /** Draw a different picture with a few tanks and coffee cups
      */
     
     public static void drawPicture3(Graphics2D g2) {
