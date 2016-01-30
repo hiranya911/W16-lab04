@@ -20,7 +20,7 @@ public class SimpleGui1 {
     public static void main (String[] args) {
 	JFrame frame = new JFrame() ;
 	
-	JButton button = new JButton("Click me and you die") ;
+	JButton button = new JButton("Click me and it's on") ;
 	
 	java.awt.Color myColor = new java.awt.Color(051,204,051);   // R, G, B values.
 	button.setBackground(myColor);
