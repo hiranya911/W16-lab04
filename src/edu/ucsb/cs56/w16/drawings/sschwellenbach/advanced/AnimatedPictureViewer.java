@@ -1,9 +1,20 @@
+
+/* TODOS:
+rotating bball
+bounces off rim
+max/min dx/dy
+multiple clicks
+*/
+
+
+
 package edu.ucsb.cs56.w16.drawings.sschwellenbach.advanced;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
 /** 
  * A main class to view the animation
  *
@@ -122,5 +133,9 @@ public class AnimatedPictureViewer{
 	dx = (int)((xClickLocation - (x + ballRadius)) / 5);
 	dy = (int)((yClickLocation - (y + ballRadius)) / 5);
 	a = 2;
+
+	if(dx > 10){
+	    dx = 10;
+	}
     }
 }
