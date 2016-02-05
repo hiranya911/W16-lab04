@@ -14,15 +14,17 @@ import java.awt.event.*;
 public class AnimatedPictureViewer{
     private DrawPanel panel = new DrawPanel();
 
-    //private BasketballHoop hoop = new BasketballHoop(50, 50, 125, 75);
-
-    //private Basketball ball = new Basketball(200, 100, 25);
+    int x = 100;
+    int y = 100;
+    int dx = 0;
+    int dy = 0;
+    int a = 0;
     
-    // Thread anim;
-
-    private int x = 100;
-
-    private int y = 100;
+    int bottomOfWindow = 800;
+    int rightOfWindow = 640;
+    int ballRadius = 25;
+    
+    Thread anim;
 
     
     public static void main(String[] args){
@@ -31,11 +33,27 @@ public class AnimatedPictureViewer{
 
     public void go(){
 	JFrame frame = new JFrame();
+	randomizeBallLocation();
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	frame.getContentPane().add(panel);
-	frame.setSize(640,480);
+	frame.setSize(rightOfWindow, bottomOfWindow);
 	frame.setVisible(true);
+
+	anim = new Animation();
+	frame.getContentPane().addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent e){
+		    if(dx == 0 && dy == 0 && a == 0){
+			getVelocities(e.getX(), e.getY());
+			anim.start();
+		    }else{
+			anim.interrupt();
+			randomizeBallLocation();
+			panel.repaint();
+		    }
+		}
+
+	    });
     }
  
     class DrawPanel extends JPanel {
@@ -48,15 +66,61 @@ public class AnimatedPictureViewer{
 
 	    //Draw basketball
 	    g2.setColor(Color.ORANGE);
-	    Basketball ball = new Basketball(x,y,25);
+	    Basketball ball = new Basketball(x,y,ballRadius);
 	    g2.draw(ball);
 
 	    //Draw hoop
 
 	    g2.setColor(Color.BLACK);
-	    BasketballHoop hoop = new BasketballHoop(300, 100, 200, 125);
+	    BasketballHoop hoop = new BasketballHoop(200, 100, 240, 150);
 	    g2.draw(hoop);
-	    
+
 	}
+    }
+
+    class Animation extends Thread{
+	public void run(){
+	    try{
+		while(true){
+		    if(y > bottomOfWindow -  ballRadius * 2){ // ball off screen
+			randomizeBallLocation();
+			
+		    } else{
+			x += dx;
+			y += dy;
+			dy += a;
+		    }
+
+		    panel.repaint();
+		    Thread.sleep(50);
+			
+		}
+	    } catch(Exception ex){
+		if (ex instanceof InterruptedException){
+		    //Don't do anything - expected on mouse exit
+		} else{
+		    ex.printStackTrace();
+		    System.exit(1);
+		}
+	    }
+	}
+    }
+
+    public void randomizeBallLocation(){
+	do{ //sets a new x value so it is not under the rim
+	    x = (int) (Math.random() * (rightOfWindow - ballRadius * 2));
+	}while (x > 230 && x < 360);
+
+	y = (int)(Math.random() * 500) + 250; //new y value
+
+	a = 0;
+	dx = 0;
+	dy = 0;
+    }
+
+    public void getVelocities(int xClickLocation, int yClickLocation){
+	dx = (int)((xClickLocation - (x + ballRadius)) / 5);
+	dy = (int)((yClickLocation - (y + ballRadius)) / 5);
+	a = 2;
     }
 }
