@@ -14,9 +14,9 @@ import java.awt.event.*;
 public class AnimatedPictureViewer{
     private DrawPanel panel = new DrawPanel();
 
-    private BasketballHoop hoop = new BasketballHoop(50, 50, 125, 75);
+    //private BasketballHoop hoop = new BasketballHoop(50, 50, 125, 75);
 
-    private Basketball ball = new Basketball(200, 100, 25);
+    //private Basketball ball = new Basketball(200, 100, 25);
     
     // Thread anim;
 
@@ -51,7 +51,12 @@ public class AnimatedPictureViewer{
 	    Basketball ball = new Basketball(x,y,25);
 	    g2.draw(ball);
 
-  
+	    //Draw hoop
+
+	    g2.setColor(Color.BLACK);
+	    BasketballHoop hoop = new BasketballHoop(300, 100, 200, 125);
+	    g2.draw(hoop);
+	    
 	}
     }
 }
