@@ -101,7 +101,7 @@ public class AnimatedPictureViewer{
 		    }
 
 		    panel.repaint();
-		    Thread.sleep(50);
+		    Thread.sleep(20);
 			
 		}
 	    } catch(Exception ex){
@@ -128,9 +128,9 @@ public class AnimatedPictureViewer{
     }
 
     public void getVelocities(int xClickLocation, int yClickLocation){
-	dx = (int)((xClickLocation - (x + ballRadius)) / 5);
-	dy = (int)((yClickLocation - (y + ballRadius)) / 5);
-	a = 3;
+	dx = (int)((xClickLocation - (x + ballRadius)) / 10);
+	dy = (int)((yClickLocation - (y + ballRadius)) / 10);
+	a = 1;
 
 
     }
