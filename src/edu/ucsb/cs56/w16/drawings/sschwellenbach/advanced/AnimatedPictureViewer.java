@@ -58,9 +58,7 @@ public class AnimatedPictureViewer{
 			getVelocities(e.getX(), e.getY());
 			anim.start();
 		    }else{
-			anim.interrupt();
-			randomizeBallLocation();
-			panel.repaint();
+			//do nothing
 		    }
 		}
 
@@ -132,10 +130,8 @@ public class AnimatedPictureViewer{
     public void getVelocities(int xClickLocation, int yClickLocation){
 	dx = (int)((xClickLocation - (x + ballRadius)) / 5);
 	dy = (int)((yClickLocation - (y + ballRadius)) / 5);
-	a = 2;
+	a = 3;
 
-	if(dx > 10){
-	    dx = 10;
-	}
+
     }
 }
