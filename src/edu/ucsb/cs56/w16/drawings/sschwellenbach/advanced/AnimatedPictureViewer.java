@@ -27,6 +27,7 @@ public class AnimatedPictureViewer{
     int a = 0;
     int degreesRotated = 0;
     int basketCount = 0;
+    int shotCount = 0;
     
     int bottomOfWindow = 800;
     int rightOfWindow = 640;
@@ -89,6 +90,11 @@ public class AnimatedPictureViewer{
 	    g2.setStroke(thick);
 	    g2.setColor(Color.BLACK);
 	    g2.drawString("Score: " + basketCount, 20, 30);
+	    double percentage = ((basketCount * 100/shotCount));
+	    String percentAsString = Double.toString(percentage);
+	    newFont = new Font("Courier New", 1, 18);
+	    g2.setFont(newFont);
+	    g2.drawString(basketCount + " / " + shotCount + " (" + percentAsString + "%)", 450, 30);
 
 	}
     }
@@ -97,7 +103,6 @@ public class AnimatedPictureViewer{
 	public void run(){
 	    try{
 		while(true){
-		    boolean made = false;
 		    if(y > bottomOfWindow -  ballRadius * 2){ // ball off screen
 			randomizeBallLocation();
 			
@@ -123,18 +128,15 @@ public class AnimatedPictureViewer{
 			if (lastY < 225 && y > 225){
 			    if((x <= 315 && x >= 275) || (lastX <= 315 && lastX >= 275)){
 				//basket made
-				made = true;
-			    }else if((x < 235) || (x > 355)){
+				basketCount++;
+				shotCount++;
+			    }else if(((x < 235) || (x > 355)) && (lastX < 235 ||lastX > 355)){
 				//shot missed
-				made = false;
+				shotCount++;
 			    }else{
 				//ball hit rim
 				y = lastY;
 				dy = dy * -2/3;
-				made = false;
-			    }
-			    if(made == true){
-				basketCount ++;
 			    }
 			}
 		    }
