@@ -1,9 +1,4 @@
 
-/* TODOS:
-bounces off rim
-max/min dx/dy
-*/
-
 
 
 package edu.ucsb.cs56.w16.drawings.sschwellenbach.advanced;
@@ -31,6 +26,7 @@ public class AnimatedPictureViewer{
     int dy = 0;
     int a = 0;
     int degreesRotated = 0;
+    int basketCount = 0;
     
     int bottomOfWindow = 800;
     int rightOfWindow = 640;
@@ -86,6 +82,12 @@ public class AnimatedPictureViewer{
 	    BasketballHoop hoop = new BasketballHoop(200, 100, 240, 150);
 	    g2.draw(hoop);
 
+	    //display made baskets text
+	    Stroke thick = new BasicStroke(6.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);
+	    g2.setStroke(thick);
+	    g2.setColor(Color.BLACK);
+	    g2.drawString("Score: " + basketCount, 20, 20);
+
 	}
     }
 
@@ -117,19 +119,21 @@ public class AnimatedPictureViewer{
 
 			//if ball is crossing the horizontal line containing rim
 			if (lastY < 225 && y > 225){
-			    if((x <= 310 && x >= 280) || (lastX <= 310 && lastX >= 280)){
+			    if((x <= 315 && x >= 275) || (lastX <= 315 && lastX >= 275)){
 				//basket made
 				made = true;
-			    }else if((x >= 230 && x <= 280) || (x >=310 && x <= 360)){
+			    }else if((x < 235) || (x > 355)){
+				//shot missed
+				made = false;
+			    }else{
 				//ball hit rim
 				y = lastY;
 				dy = dy * -1;
 				made = false;
-			    }else{
-				//shot missed
-				made = false;
 			    }
-			
+			    if(made == true){
+				basketCount ++;
+			    }
 			}
 		    }
 		    
