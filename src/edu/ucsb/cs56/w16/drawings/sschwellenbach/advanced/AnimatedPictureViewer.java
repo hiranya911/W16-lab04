@@ -83,10 +83,12 @@ public class AnimatedPictureViewer{
 	    g2.draw(hoop);
 
 	    //display made baskets text
-	    Stroke thick = new BasicStroke(6.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);
+	    Stroke thick = new BasicStroke(4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);
+	    Font newFont = new Font("Courier New", 1, 25);
+	    g2.setFont(newFont);
 	    g2.setStroke(thick);
 	    g2.setColor(Color.BLACK);
-	    g2.drawString("Score: " + basketCount, 20, 20);
+	    g2.drawString("Score: " + basketCount, 20, 30);
 
 	}
     }
@@ -128,7 +130,7 @@ public class AnimatedPictureViewer{
 			    }else{
 				//ball hit rim
 				y = lastY;
-				dy = dy * -1;
+				dy = dy * -2/3;
 				made = false;
 			    }
 			    if(made == true){
@@ -157,7 +159,7 @@ public class AnimatedPictureViewer{
 	    x = (int) (Math.random() * (rightOfWindow - ballRadius * 2));
 	}while (x > 230 && x < 360);
 
-	y = (int)(Math.random() * 500) + 250; //new y value
+	y = (int)(Math.random() * 475) + 250; //new y value
 
 	lastX = x;
 	lastY = y;
