@@ -2,7 +2,7 @@
 Base repository for CS56 W16 lab04 (Open Source)
 
 # Javadoc
-My javadoc is here: http://www.cs.ucsb.edu/~nicholas/cs56/lab04/javadoc
+My javadoc is here: http://www.cs.ucsb.edu/~nicholas/cs56/W16-lab04/javadoc
 
 # Student Instructions
 
