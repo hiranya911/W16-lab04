@@ -1,9 +1,7 @@
 
 /* TODOS:
-rotating bball
 bounces off rim
 max/min dx/dy
-multiple clicks
 */
 
 
@@ -27,9 +25,12 @@ public class AnimatedPictureViewer{
 
     int x = 100;
     int y = 100;
+    int lastX = 100;
+    int lastY = 100;
     int dx = 0;
     int dy = 0;
     int a = 0;
+    int degreesRotated = 0;
     
     int bottomOfWindow = 800;
     int rightOfWindow = 640;
@@ -76,7 +77,8 @@ public class AnimatedPictureViewer{
 	    //Draw basketball
 	    g2.setColor(Color.ORANGE);
 	    Basketball ball = new Basketball(x,y,ballRadius);
-	    g2.draw(ball);
+	    Shape rotatedBall = ShapeTransforms.rotatedCopyOf(ball, Math.PI * degreesRotated / 180.0);
+	    g2.draw(rotatedBall);
 
 	    //Draw hoop
 
@@ -91,15 +93,46 @@ public class AnimatedPictureViewer{
 	public void run(){
 	    try{
 		while(true){
+		    boolean made = false;
 		    if(y > bottomOfWindow -  ballRadius * 2){ // ball off screen
 			randomizeBallLocation();
 			
 		    } else{
+			//sets new vals for x,y,degreesRotated, lastX, and lastY
+			lastX = x;
 			x += dx;
+			lastY = y;
 			y += dy;
 			dy += a;
-		    }
+			if ((Math.abs(degreesRotated) < 360) && (dx != 0 || dy != 0 || a!=0)){
+			    if(dx < 0){
+				degreesRotated += 20;
+			    }else{
+				degreesRotated -= 20;
+			    }
+			}
+			else{
+			    degreesRotated = 0;
+			}
 
+			//if ball is crossing the horizontal line containing rim
+			if (lastY < 225 && y > 225){
+			    if((x <= 310 && x >= 280) || (lastX <= 310 && lastX >= 280)){
+				//basket made
+				made = true;
+			    }else if((x >= 230 && x <= 280) || (x >=310 && x <= 360)){
+				//ball hit rim
+				y = lastY;
+				dy = dy * -1;
+				made = false;
+			    }else{
+				//shot missed
+				made = false;
+			    }
+			
+			}
+		    }
+		    
 		    panel.repaint();
 		    Thread.sleep(20);
 			
@@ -122,9 +155,12 @@ public class AnimatedPictureViewer{
 
 	y = (int)(Math.random() * 500) + 250; //new y value
 
+	lastX = x;
+	lastY = y;
 	a = 0;
 	dx = 0;
 	dy = 0;
+	degreesRotated = 0;
     }
 
     public void getVelocities(int xClickLocation, int yClickLocation){
