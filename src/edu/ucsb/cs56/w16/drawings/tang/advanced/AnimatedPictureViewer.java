@@ -22,9 +22,13 @@ public class AnimatedPictureViewer {
     
     Thread anim;   
     private int len = 72;
-    private int x = len*3/2;
+    private int radius = len*3/2;
+    private int x = radius;
     private int y = 372;
-    // private Shape murica;
+ 
+    private int s = 0;
+
+
     private double scale = 1.0;
     private int dx = 2;
 
@@ -73,10 +77,16 @@ public class AnimatedPictureViewer {
           Color randColor = new Color(rand.nextInt(255),rand.nextInt(255),rand.nextInt(255));
           g2.setColor(randColor);
           Shape murica;
+          // rand = new Random();
+          // randColor = new Color(rand.nextInt(255),rand.nextInt(255),rand.nextInt(255));
+          // g2.setColor(randColor);
+          // Shape something;
           // StarShield test = new StarShield(x, y, len);
           murica = ShapeTransforms.rotatedCopyOf(new StarShield(x, y, len),x*0.785);
           murica = ShapeTransforms.scaledCopyOfLL(murica,1,(scale*(640-x)/640));
           murica = ShapeTransforms.translatedCopyOf(murica,0,(scale*(640-0.75*x*x)/640));
+	  // murica = ShapeTransforms.rotatedCopyOf(murica,x/314);
+	  
           g2.draw(murica);
        }
     }
@@ -86,10 +96,18 @@ public class AnimatedPictureViewer {
         try {
           while (true) {
             //flatten the shield and makes it change colors
-            if(x < (640-len*3/2)){ //stop when it touches the wall
-              x += dx; 
+            if(s==0){
+              if (x < (640-radius)){ //stop when it touches the wall
+                x += dx; 
+              }
+              else{s=1;x=(640-radius);}
             }
-            else{x = len;}               
+            else{
+              if (x > radius){
+                x-= dx;
+              }
+              else{s=0;x=radius;}
+            }               
             panel.repaint();
             Thread.sleep(10);
           }
