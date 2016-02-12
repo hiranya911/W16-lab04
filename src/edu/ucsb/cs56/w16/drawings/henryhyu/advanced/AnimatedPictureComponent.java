@@ -26,7 +26,7 @@ import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 /**
    A component that draws an animated picture by Henry Yu
    
-   @author Henry Yy
+   @author Henry Yu
    @version CS56, W16
    
 */
@@ -36,16 +36,17 @@ public class AnimatedPictureComponent extends JComponent
 {  
     private Shape computer;
     private Shape computertwo;
-    private Shape completecomputer;
+    private Shape computerthree;
+    private Shape completecomputer; // computer with a desktop
     private Shape completecomputertwo;
     private double startingXPos;
     private double startingYPos;
     private double width;
-    private double travelDistance = 0;
-    private double elevateDistance = 0;
+    private double travelDistance = 0; // horizontal distance
+    private double elevateDistance = 0; // vertial distance
 
 
-    // starting length: 300; width: 30
+    // width: 150
     /** Constructs an AnimatedPictureComponent with specific properties.
 	This animated picture depicts a computer moving across the vicinity of the frame, bouncing back to the original point.
 
@@ -53,7 +54,6 @@ public class AnimatedPictureComponent extends JComponent
 	@param startingYPos the starting y position of the computer
 	@param travelDistance the number of pixels the computer will move horizontally across the screen before stopping
 	@param elevateDistance the number of pixels the computer will move vertically across the screen before stopping
-	@param startingLength the starting length of the computer in pixels
 	@param width the width of the computer in pixels
     */
     public AnimatedPictureComponent(double startingXPos, double startingYPos, double width) {
@@ -63,6 +63,7 @@ public class AnimatedPictureComponent extends JComponent
 
 	computer = new Computer(this.startingXPos, this.startingYPos, this.width);
 	computertwo = new Computer(this.startingXPos, this.startingYPos, this.width);
+	computerthree = new Computer(this.startingXPos, this.startingYPos, this.width);
 	completecomputer = new CompleteComputer(this.startingXPos, this.startingYPos, this.width);
 	completecomputertwo = new CompleteComputer(this.startingXPos, this.startingYPos, this.width);
     }
@@ -82,6 +83,7 @@ public class AnimatedPictureComponent extends JComponent
        Graphics2D g2 = (Graphics2D) g;
        computer = ShapeTransforms.translatedCopyOf(computer,10,0);
        computertwo = ShapeTransforms.translatedCopyOf(computertwo,0,10);
+       computerthree = ShapeTransforms.rotatedCopyOf(computerthree, 1.75*Math.PI); 
        completecomputer = ShapeTransforms.translatedCopyOf(completecomputer,20,20);
        completecomputertwo = ShapeTransforms.translatedCopyOf(completecomputertwo,10,10);
  
@@ -106,7 +108,10 @@ public class AnimatedPictureComponent extends JComponent
 	  g2.draw(computertwo);
 	  g2.draw(completecomputertwo);
           elevateDistance++;
-	} 
+	}
+	
+	// rotating computer
+	g2.draw(computerthree);  
             
    }    
   
