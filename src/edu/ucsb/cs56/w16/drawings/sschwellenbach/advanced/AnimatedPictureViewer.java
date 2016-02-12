@@ -28,6 +28,7 @@ public class AnimatedPictureViewer{
     int degreesRotated = 0;
     int basketCount = 0;
     int shotCount = 0;
+    boolean made = false;
     
     int bottomOfWindow = 800;
     int rightOfWindow = 640;
@@ -50,11 +51,12 @@ public class AnimatedPictureViewer{
 	frame.setVisible(true);
 
 	anim = new Animation();
+	anim.start();
 	frame.getContentPane().addMouseListener(new MouseAdapter(){
 		public void mouseClicked(MouseEvent e){
 		    if(dx == 0 && dy == 0 && a == 0){
 			getVelocities(e.getX(), e.getY());
-			anim.start();
+			//	anim.start();
 		    }else{
 			//do nothing
 		    }
@@ -90,11 +92,19 @@ public class AnimatedPictureViewer{
 	    g2.setStroke(thick);
 	    g2.setColor(Color.BLACK);
 	    g2.drawString("Score: " + basketCount, 20, 30);
-	    double percentage = ((basketCount * 100/shotCount));
+	    double percentage = 0;
+	    if (shotCount != 0){
+		percentage = ((basketCount * 100/shotCount));
+	    }
 	    String percentAsString = Double.toString(percentage);
 	    newFont = new Font("Courier New", 1, 18);
 	    g2.setFont(newFont);
 	    g2.drawString(basketCount + " / " + shotCount + " (" + percentAsString + "%)", 450, 30);
+
+	    //display instructions text
+	    newFont = new Font("Courier New", 1, 12);
+	    g2.setFont(newFont);
+	    g2.drawString("Aim and click to shoot the ball. Good luck!", 10, bottomOfWindow - 45);
 
 	}
     }
@@ -104,8 +114,11 @@ public class AnimatedPictureViewer{
 	    try{
 		while(true){
 		    if(y > bottomOfWindow -  ballRadius * 2){ // ball off screen
-			randomizeBallLocation();
-			
+			if(made == true){
+			    basketCount ++;
+			}
+			shotCount++;
+			randomizeBallLocation();	
 		    } else{
 			//sets new vals for x,y,degreesRotated, lastX, and lastY
 			lastX = x;
@@ -128,11 +141,9 @@ public class AnimatedPictureViewer{
 			if (lastY < 225 && y > 225){
 			    if((x <= 315 && x >= 275) || (lastX <= 315 && lastX >= 275)){
 				//basket made
-				basketCount++;
-				shotCount++;
+				made = true;
 			    }else if(((x < 235) || (x > 355)) && (lastX < 235 ||lastX > 355)){
 				//shot missed
-				shotCount++;
 			    }else{
 				//ball hit rim
 				y = lastY;
@@ -161,7 +172,7 @@ public class AnimatedPictureViewer{
 	    x = (int) (Math.random() * (rightOfWindow - ballRadius * 2));
 	}while (x > 230 && x < 360);
 
-	y = (int)(Math.random() * 475) + 250; //new y value
+	y = (int)(Math.random() * 450) + 250; //new y value
 
 	lastX = x;
 	lastY = y;
@@ -169,6 +180,7 @@ public class AnimatedPictureViewer{
 	dx = 0;
 	dy = 0;
 	degreesRotated = 0;
+	made = false;
     }
 
     public void getVelocities(int xClickLocation, int yClickLocation){
