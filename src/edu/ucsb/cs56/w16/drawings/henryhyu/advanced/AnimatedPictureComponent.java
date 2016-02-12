@@ -111,8 +111,8 @@ public class AnimatedPictureComponent extends JComponent
 	}
 	
 	// rotating computer
-	g2.draw(computerthree);  
-            
+        g2.setStroke(new BasicStroke(10));
+  	g2.draw(computerthree); 
    }    
   
 }
