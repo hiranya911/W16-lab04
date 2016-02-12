@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.w16.drawings.pconrad.simple;
+package edu.ucsb.cs56.w16.drawings.metomario.simple;
 import javax.swing.JFrame;
 
 /** A viewer class to see a picture I drew with 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
  *  Rectangle, Line2D.Double, Ellipse2D.Double
  *  
  * @author P. Conrad
- * @author   ADD YOUR NAME @@@
+ * @author  Ben Zhu @@@
  * @version CS56, W16, UCSB
  */
 
