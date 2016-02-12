@@ -22,9 +22,13 @@ public class AnimatedPictureViewer {
     
     private int x = 100;
     private int y = 100;
-    
     private int dx = 5;
-    
+    private int dy = 5;
+    private int red = 0;
+    private int green = 0;
+    private int dg = 5;
+    private int blue = 255;
+    private int db = 5;
     public static void main (String[] args) {
 	new AnimatedPictureViewer().go();
     }
@@ -66,8 +70,9 @@ public class AnimatedPictureViewer {
 	    g2.fillRect(0,0,this.getWidth(), this.getHeight());
 	    
 	    // Draw the Ring
-	    g2.setColor(Color.RED);
-	    Ring test = new Ring(x, y, 100, 100);
+	    Color color = new Color(red,green,blue);
+	    g2.setColor(color);
+	    DiamondRing test = new DiamondRing(x, y, 100, 100);
 	    g2.draw(test);
 	}
     }
@@ -80,8 +85,22 @@ public class AnimatedPictureViewer {
 		    
 		    if (x >= 400) { dx = -5; }
 		    if (x <= 50) { dx = 5; }
+
+		    if (y >= 400) { dy = -5; }
+		    if (y <= 50) { dy = 5; }
+
+		    x += dx;
+		    y += dy;
 		    
-		    x += dx;                
+		    if (green >= 255) { dg = -5; }
+		    if (green <= 0) { dg = 5; }
+		    if (blue >= 255) { db = 5; }
+		    if (blue <= 0) { db = -5; }
+		    
+		    //red += 5;
+		    blue -= db;
+		    green += dg;
+	    
 		    panel.repaint();
 		    Thread.sleep(50);
 		}
