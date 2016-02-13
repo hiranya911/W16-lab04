@@ -16,8 +16,7 @@ import java.awt.geom.Rectangle2D;
 
 public class AnimatedPictureViewer {
     private DrawPanel panel = new DrawPanel();
-    //private flagTank tank1 = new flagTank(100, 100, 100, 100);
-    //private flagTank tank2 = new flagTank(400,100,100,150);
+    
 
     Thread anim;
     private int x = 100;
@@ -94,6 +93,7 @@ public class AnimatedPictureViewer {
 	    g2.setColor(Color.DARK_GRAY);
 	    g2.fillRect(0,0,this.getWidth(), this.getHeight());
 
+	    //Ground
 	    g2.setColor(Color.GREEN);
 	    g2.fillRect(0,375,900,20);
 	    
@@ -103,24 +103,28 @@ public class AnimatedPictureViewer {
 	    Tank tank = new Tank(x, yR, 75, 50);
 	    g2.draw(tank);
 
+	    //projectile
 	    g2.setColor(Color.BLACK);
 	    g2.fillOval(xShot-blength,yShot,shotRadius,shotRadius);
 
+	    // Draw Blue Tank
 	    g2.setColor(Color.BLUE);
 	    g2.setStroke(new BasicStroke(20));
 	    flagTank tank2 = new flagTank(xT2,y,75,50);
 	    g2.draw(tank2);
 
-	    
+	    // Text
 	    g2.setColor(Color.GREEN);
 	    Font f = new Font("Arial",Font.BOLD,20);
 	    g2.setFont(f);
 	    g2.drawString("MISSION: ATTACK ENEMY TANK",20,40);
 	    g2.drawString("TIME 06:30",20,60);
 
+	    //Bottom bomb
 	    g2.setColor(Color.BLACK);
 	    g2.fillRect(xTopBomb,yTopBomb,35,15);
-	    
+
+	    //Top bomb
 	    g2.setColor(Color.BLACK);
 	    g2.fillOval(xBotBomb,yBotBomb,30,35);
   
