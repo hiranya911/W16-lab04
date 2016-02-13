@@ -135,32 +135,70 @@ public class AnimatedPictureViewer {
     
     class Animation extends Thread {
 	public void run() {
-		while (true) {
+	    try {
+	    while (true) {
 		    // Shoot the Red Tank
 
-		    if (xT2 >= 695) { dx = -1; xT2 += dx; xShot += dx; }
+		    if (xT2 >= 695) {
+			dx = -1;
+			xT2 += dx;
+			xShot += dx;
+		    }
 
-		    if (xT2 <=  695 && xShot >= x+(height*2)) { dxShot = -6; xShot += dxShot; }
+		    if (xT2 <=  695 && xShot >= x+(height*2)) {
+			dxShot = -6;
+			xShot += dxShot;
+		    }
 
-		    if(x+(height*2) < xShot && xShot<= x+(height*3) && yR < 1000) { dy = -2; yR += dy; }
-		    if(xShot <= x+(height*2) && yR < 1000) {dy = 3; yR += dy; yShot += dy;}
+		    if(x+(height*2) < xShot && xShot<= x+(height*3) && yR < 1000) {
+			dy = -2;
+			yR += dy;
+		    }
+		    if(xShot <= x+(height*2) && yR < 1000) {
+			dy = 3;
+			yR += dy;
+			yShot += dy;
+		    }
 		    panel.repaint();
-	
+		    Thread.sleep(20);
 		}
+	    } catch(Exception ex){}
 	}
     }
+ 
 
     class Animation2 extends Thread {
 	public void run() {
+	    try {
 	    while(true){
 	    //drop a bomb;
-		if (xBotBomb >= x+(height*2) && (yBotBomb <= y)) { dxBomb = -2; dyBomb = 1; xBotBomb += dxBomb; xTopBomb += dxBomb; yBotBomb += dyBomb; yTopBomb += dyBomb;}
-		if(x+(height*2) < xBotBomb && xBotBomb<= x+(height*3) && yR < 1000) { dy = -2; yR += dy; }
-		if(xBotBomb <= x+(height*2) && yR < 1000) {dy = 3; yR += dy; yShot += dy; yBotBomb += dy; yTopBomb += dy; }
+		if (xBotBomb >= x+(height*2) && (yBotBomb <= y)) {
+		    dxBomb = -2;
+		    dyBomb = 1;
+		    xBotBomb += dxBomb;
+		    xTopBomb += dxBomb;
+		    yBotBomb += dyBomb;
+		    yTopBomb += dyBomb;
+		}
+		if(x+(height*2) < xBotBomb && xBotBomb<= x+(height*3) && yR < 1000) {
+		    dy = -2;
+		    yR += dy;
+		}
+		if(xBotBomb <= x+(height*2) && yR < 1000) {
+		    dy = 3;
+		    yR += dy;
+		    yBotBomb += dy;
+		    yTopBomb += dy;
+		}
 		panel.repaint();
-		    }
+		Thread.sleep(20);
+	    }
+	    }catch(Exception ex){}
 	}
     }
 }
+
+
+
 
 
