@@ -25,3 +25,5 @@ To run one of those tasks, overriding the student's CSIL id to jgaucho, use, for
 <code>ant -DstudentName=jgaucho gradePV</code>
 
 You can test this with studentName set to <code>pconrad</code>, <code>andrewberls</code>, or <code>jstaahl</code> as examples.   All of those should work on pconrad, though only the MPV tasks will work for the other two.
+
+Lab04 Javadoc: http://www.cs.ucsb.edu/~phillip_fry/cs56/W16-lab04/javadoc/
