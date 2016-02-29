@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.w16.drawings.pconrad;
+package edu.ucsb.cs56.w16.drawings.metomario;
 
 import javax.swing.*;
 
@@ -20,9 +20,9 @@ public class SimpleGui1 {
     public static void main (String[] args) {
 	JFrame frame = new JFrame() ;
 	
-	JButton button = new JButton("Click me") ;
+	JButton button = new JButton("Click now and win a free iPad!") ;
 	
-	java.awt.Color myColor = new java.awt.Color(204,255,000);   // R, G, B values.
+	java.awt.Color myColor = new java.awt.Color(255,89,000);   // R, G, B values.
 	button.setBackground(myColor);
 	button.setOpaque(true);
 	

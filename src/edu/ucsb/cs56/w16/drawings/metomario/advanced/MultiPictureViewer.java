@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.w16.drawings.pconrad.advanced;
+package edu.ucsb.cs56.w16.drawings.metomario.advanced;
 
 import javax.swing.JFrame;
 
@@ -7,6 +7,7 @@ import javax.swing.JFrame;
  *  Rectangle, Line2D.Double, Ellipse2D.Double
  *  
  * @author P. Conrad 
+ * @author Ben Zhu (Changed Title Only)
  * @version for UCSB CS56, W16
  */
 
@@ -31,7 +32,7 @@ public class MultiPictureViewer
        frame.setSize(640,480); // @@@ MODIFY THIS LINE IF YOU LIKE
        
        // Set your own title
-       frame.setTitle("Phill's First Drawing"); // @@@ MODIFY THIS LINE
+       frame.setTitle("Dota 2 Logo, All Rights Reserved to Valve"); // @@@ MODIFY THIS LINE
        
        // Always do this so that the red X (or red circle) works
        // to close the window. 
