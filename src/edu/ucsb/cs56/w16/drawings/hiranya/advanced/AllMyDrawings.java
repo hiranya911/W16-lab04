@@ -23,6 +23,11 @@ public class AllMyDrawings
     
     public static void drawPicture1(Graphics2D g2) {
 	
+	Shape c = new Car(100, 250, 100, 70, 10);
+	c = ShapeTransforms.translatedCopyOf(c, 0, -100);
+	g2.setColor(Color.RED);
+	g2.draw(c);
+
 	House h1 = new House(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
