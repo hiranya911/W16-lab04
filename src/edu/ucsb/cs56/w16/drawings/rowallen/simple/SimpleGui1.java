@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.w16.drawings.rowallen;
+package edu.ucsb.cs56.w16.drawings.rowallen.simple;
 
 import javax.swing.*;
 
